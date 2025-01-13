@@ -1,0 +1,5 @@
+.env
+.venv
+statuxbackend/client_secret_591032654485-78cujvqj4l96u8glato5k64ojq1u3rnl.apps.googleusercontent.com.json
+statuxbackend/statux-pubsub-key.json
+statuxbackend/token.json

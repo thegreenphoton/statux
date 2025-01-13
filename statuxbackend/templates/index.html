@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="sisyphus1">
+        <img src="{{ url_for('static', filename='sisyphus1.png')}}" class="sisyphus">
+    </div>
+
+    <div class="keepgoing">Keep applying!!</div>
+
+    <div class="menu">
+        <img src=" {{ url_for('static', filename='gauchologo.png') }}" class="gauchoimg">
+        <div class="menu-content">
+            <a href="/add">Add Internship</a>
+            <a href="/update">Update Internship</a>
+            <a href="/profile">Profile</a>
+            <a href="/signout">Sign Out</a>
+            <a></a>
+            <a></a>
+        </div>
+    </div>
+
+    <h1 id="topheader">InternSurf SB</h1>
+
+    <form id="checkemailbutton" action="{{ url_for('check_emails_update_status') }}" method="POST">
+        <input type="submit" value="Check Emails and Update Statuses">
+    </form>
+
+    <div id="statbox">
+        <ul class="statdisplay">
+        <li id="totalpstat">Total positions: {{ total_positions }}</li>
+        <li id="posostat">Total offered: {{ positions_offered }}</li>
+        <li id="posdstat">Total denied: {{ positions_denied }}</li>
+        <li id="oastat">Total online assessments: {{ positions_oa }}</li>
+        <li id="bastat">Total behavioral assessments: {{ positions_ti }}</li>
+        </ul>
+    </div>
+
+    {% if internships %}
+    <table id="datatable">
+        <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Date Applied</th>
+        </tr>
+        {% for internship in internships %}
+        <tr>
+            <!-- Apply the status class to each <td> to color the entire row -->
+            <td class="{% if internship['status'] == 'Denied' %}denied-status{% elif internship['status'] == 'TI' or internship['status'] == 'OA' %}ti-oa-status{% elif internship['status'] == 'Position Offered' %}offered-status{% elif internship['status'] == 'Applied' %}applied-status{% endif %}">
+                {{ internship['company'] | upper }}
+            </td>
+            <td class="{% if internship['status'] == 'Denied' %}denied-status{% elif internship['status'] == 'TI' or internship['status'] == 'OA' %}ti-oa-status{% elif internship['status'] == 'Position Offered' %}offered-status{% elif internship['status'] == 'Applied' %}applied-status{% endif %}">
+                {{ internship['position'] | upper }}
+            </td>
+            <td class="{% if internship['status'] == 'Denied' %}denied-status{% elif internship['status'] == 'TI' or internship['status'] == 'OA' %}ti-oa-status{% elif internship['status'] == 'Position Offered' %}offered-status{% elif internship['status'] == 'Applied' %}applied-status{% endif %}">
+                {{ internship['status'] | upper }}
+            </td>
+            <td class="{% if internship['status'] == 'Denied' %}denied-status{% elif internship['status'] == 'TI' or internship['status'] == 'OA' %}ti-oa-status{% elif internship['status'] == 'Position Offered' %}offered-status{% elif internship['status'] == 'Applied' %}applied-status{% endif %}">
+                {{ internship['date_applied'] }}
+            </td>
+
+            <td class="{% if internship['status'] == 'Denied' %}denied-status{% elif internship['status'] == 'TI' or internship['status'] == 'OA' %}ti-oa-status{% elif internship['status'] == 'Position Offered' %}offered-status{% elif internship['status'] == 'Applied' %}applied-status{% endif %}">
+                <!-- Form to delete internship using company and position -->
+                <form action="{{ url_for('delete_internship', company=internship['company'], position=internship['position']) }}" method="post" style="display:inline;">
+                   <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this internship?');">
+                </form>
+            </td>
+            <td class="{% if internship['status'] == 'Denied' %}denied-status{% elif internship['status'] == 'TI' or internship['status'] == 'OA' %}ti-oa-status{% elif internship['status'] == 'Position Offered' %}offered-status{% elif internship['status'] == 'Applied' %}applied-status{% endif %}">
+                <!-- Form to update internship manually using company and position -->
+                <a href="{{ url_for('manual_update_status', company=internship['company'], position=internship['position']) }}" method="POST" style="display:inline;">
+                   <button type="button">Update Status</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <tr>
+            <td colspan="4">None found</td>
+        </tr>
+    {% endif %}
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='update.css') }}">
+    <title>Update Status</title>
+</head>
+<body>
+    <h1>Update Status for {{ company | upper }} - {{ position | upper }}</h1>
+    <form action="{{ url_for('manual_update_status', company=company, position=position) }}" method="POST">
+        <label for="status">New Status:</label><br>
+        <select id="status" name="status" required>
+            <option value="Applied">Applied</option>
+            <option value="Denied">Denied</option>
+            <option value="OA">OA</option>
+            <option value="TI">TI</option>
+            <option value="Position Offered">Position Offered</option>
+        </select><br><br>
+
+        <input type="submit" value="Update Status">
+    </form>
+    <br>
+    <div>
+        <a href="{{ url_for('index') }}">Cancel and return to the homepage</a>
+    </div>
+</body>
+</html>

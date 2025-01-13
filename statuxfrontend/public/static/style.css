@@ -1,0 +1,148 @@
+body {
+    background-color: rgb(254, 249, 229);
+    overflow-x: hidden;
+}
+
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+.gauchoimg {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 10px;
+    top: 0;
+}
+
+.menu-content {
+    position: absolute;
+    top: -10px;
+
+    left: -200px;
+    width: 200px;
+    background-color: rgb(0, 35, 116);
+    transition: left 0.3s ease;  
+}
+
+.menu-content a {
+    color: rgb(254, 249, 229);
+    text-decoration: none;
+    display: block;
+    height: 100px;
+    font-family: "Orbitron", sans-serif;
+    padding: 30px;
+}
+
+.menu-content a:hover {
+    color: rgb(154, 170, 223);
+}
+
+.menu:hover .menu-content {
+    left: 0;
+}
+
+#topheader {
+    color: rgb(0, 35, 116);
+    margin-left: 10%;
+    padding-top: 1%;
+    font-size: 50px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.sisyphus {
+    position: absolute;
+    right: 10%;
+    width: 200px;
+}
+
+.keepgoing {
+    position: absolute;
+    right: 0%;
+    width: 200px;
+}
+
+#checkemailbutton {
+    text-align: center;
+}
+
+#datatable {
+    border-collapse: collapse;
+    width: 90%;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+#datatable th {
+    border: 2px solid black;
+    padding: 16px;
+    text-align: middle;
+    font-style: italic;
+}
+
+#datatable td {
+    border: 2px solid black;
+    padding: 8px 5px;
+    text-align: left;
+}
+
+.denied-status {
+    background-color: rgb(188, 0, 0);
+    color: white; 
+}
+
+.ti-oa-status {
+    background-color: rgb(251, 216, 117);
+    color: black; 
+}
+
+.offered-status {
+    background-color: rgb(134, 214, 134);
+    color: black; 
+}
+
+.applied-status {
+    background-color: rgb(212, 211, 211);
+}
+
+#totalpstat {
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;   
+}
+
+#posostat {
+    color:rgb(3, 130, 3);
+}
+
+#posdstat {
+    color: rgb(142, 3, 3);
+}
+
+#oastat {
+    color: rgb(192, 142, 4);
+}
+
+#bastat {
+    color: rgb(192, 142, 4);
+}
+
+#statbox {
+    border: 2px solid black;
+    padding: 10px;  
+    margin-right: auto;
+    margin-left: 5%;
+    font-size: 15px;
+    background-color: white;
+    width: 87.5%;
+}
+
+.statdisplay li {
+    list-style-type: none;
+    margin: 0px 10px;
+    display: inline;
+}

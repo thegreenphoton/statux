@@ -1,0 +1,85 @@
+.table-container {
+    margin: 20px auto;
+    overflow-x: auto; /* Ensures horizontal scrolling on smaller screens */
+    max-width: 100%;
+  }
+  
+  table.styled-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 8px;
+    border: 1px solid black;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+ 
+  
+  .styled-table thead tr {
+    background-color: white;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+
+  }
+  
+  .styled-table tbody tr {
+    transition: background-color 0.2s;
+    
+  }
+  
+  /* Status-specific row colors */
+  .row-applied {
+    background-color: #f6f6f6; /* Grey for applied */
+  }
+
+  .row-applied:hover {
+    background-color: #d3d3d3;
+  }
+  
+  .row-denied {
+    background-color: #f8d7da; /* Light red for denied */
+  }
+
+  .row-denied:hover {
+    background-color: rgb(255, 82, 82);
+  }
+  
+  .row-oa-ti {
+    background-color: #fff3cd; /* Light yellow for OA/TI */
+  }
+
+  .row-oa-ti:hover {
+    background-color: #fbe087; 
+  }
+  
+  .row-offered {
+    background-color: #d4edda; /* Light green for position offered */
+  }
+
+  .row-offered:hover {
+    background-color: #77ff97; /* Light green for position offered */
+  }
+  
+  /* Button styling */
+  .delete-button {
+    padding: 8px 12px;
+    background-color: #ff4d4d;
+    color: white;
+    
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #e60000;
+  }

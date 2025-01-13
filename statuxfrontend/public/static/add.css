@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(254, 249, 229);
+}
+
+.backbutton {
+    width: 50px;
+    cursor: pointer;
+    
+}
+.mainHeader {
+    text-align: center;
+    color: rgb(0, 35, 116);
+    font-family: "Orbitron", sans-serif;
+}
+
+.addForm {
+    text-align: center;
+}
+

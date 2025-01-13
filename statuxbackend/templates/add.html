@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='add.css')}}">
+    <title>Internships</title>
+    <script>
+        function toggleCustomPosition() {
+            var positionSelect = document.getElementById("position");
+            var customPositionInput = document.getElementById("custom_position_input");
+            var customPositionDiv = document.getElementById("custom_position");
+
+            if (positionSelect.value === "other") {
+                customPositionDiv.style.display = "block";
+                customPositionInput.required = true;
+            }
+            else {
+                customPositionDiv.style.display = "none";
+                customPositionInput.required = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="/">
+        <img class="backbutton" src=" {{ url_for('static', filename='back1.png')}}">
+    </a>
+    <h1 class="mainHeader">Add Internship</h1>
+    <form class="addForm" action="/add" method="POST">
+        <label for="company">Company:</label><br>
+        <input type="text" id="company" name="company" required><br><br>
+
+        <label for="position">Position:</label><br>
+        <select type="text" id="position" name="position" onchange="toggleCustomPosition()" required>
+            <option value="software engineer">Software Engineer</option>
+            <option value="electrical engineer">Electrical Engineer</option>
+            <option value="data science">Data Science</option>
+            <option value="hardware engineer">Hardware Engineer</option>
+            <option value="embedded systems engineer">Embedded Systems Engineer</option>
+            <option value="computer engineer">Computer Engineer</option>
+            <option value="ai or ml engineer">AI/ML Engineer</option>
+            <option value="firmware engineer">Firmware Engineer</option>
+            <option value="data engineer">Data Engineer</option>
+            <option value="cybersecurity">Cybersecurity</option>
+            <option value="fpga engineer">FPGA Engineer</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="status">Status:</label><br>
+        <select id="status" name="status" required>
+            <option value="Applied">Applied</option>
+            <option value="Denied">Denied</option>
+            <option value="OA">OA</option>
+            <option value="TI">TI</option>
+            <option value="Position Offered">Position Offered</option>
+        <select></select><br><br>
+
+        <div id="custom_position" style="display: none;">
+            <label for="custom_position_input">Custom Position:</label><br>
+            <input type="text" id="custom_position_input" name="custom_position"><br><br>
+        </div>
+
+        <label for="date_applied">Date Applied:</label><br>
+        <input type="date" id="date_applied" name="date_applied" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
